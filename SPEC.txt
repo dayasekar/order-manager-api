@@ -1,0 +1,46 @@
+Identify actors & use cases
+
+
+High level structure
+	Controller
+		Get Mappings
+		Put Mappings
+		Post Mappings
+		Authenticated end point to view system state
+	Validator
+		javascript injection
+		Error messages
+	Exceptions
+	Controller Advice
+	Service
+	Persistence
+	Logging
+
+Come up with interaction diagram
+
+
+Approach
+	BDD
+
+Documentation
+	swagger - DONE
+	javadoc
+
+Hygiene
+	jacoco
+	find bugs
+
+Technologies to include
+
+	Cucumber
+	lombok - DONE
+	spring boot start web - DONE
+	json assertion using rest assured
+
+Deployment
+
+	mvn run - DONE
+
+Readme.txt
+	API playground using swagger - DONE
+	Minimum java version is 1.8 - DONE
