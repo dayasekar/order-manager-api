@@ -1,3 +1,6 @@
+spring:
+  jackson:
+    date-format: yyyy/MM/dd
 logging:
   level:
     root: INFO

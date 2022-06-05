@@ -1,4 +1,4 @@
-package net.bos.om.api.rest.input;
+package net.bos.om.api.io.input.orderbook;
 
 import lombok.Data;
 

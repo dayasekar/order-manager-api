@@ -1,10 +1,10 @@
-package net.bos.om.api.app;
+package net.bos.om.api.app.orderbook;
 
 import lombok.extern.slf4j.Slf4j;
-import net.bos.om.api.rest.input.CloseOrderBookInput;
-import net.bos.om.api.rest.input.CreateOrderBookInput;
-import net.bos.om.api.rest.input.OpenOrderBookInput;
-import net.bos.om.api.rest.output.OrderBookOutput;
+import net.bos.om.api.io.input.orderbook.CloseOrderBookInput;
+import net.bos.om.api.io.input.orderbook.CreateOrderBookInput;
+import net.bos.om.api.io.input.orderbook.OpenOrderBookInput;
+import net.bos.om.api.io.output.orderbook.OrderBookOutput;
 import net.bos.om.api.vo.InvocationResponse;
 import org.springframework.stereotype.Component;
 import org.springframework.validation.annotation.Validated;

@@ -1,4 +1,4 @@
-package net.bos.om.api.rest.output;
+package net.bos.om.api.io.output.orderbook;
 
 import lombok.Data;
 import net.bos.om.api.vo.OrderBookVO;

@@ -1,4 +1,4 @@
-package net.bos.om.api.rest.controller;
+package net.bos.om.api.controller;
 
 import net.bos.om.api.vo.InvocationResponse;
 import org.springframework.http.HttpStatus;

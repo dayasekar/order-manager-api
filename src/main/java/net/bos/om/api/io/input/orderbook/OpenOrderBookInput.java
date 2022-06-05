@@ -1,14 +1,12 @@
-package net.bos.om.api.rest.input;
+package net.bos.om.api.io.input.orderbook;
 
 import lombok.Data;
 
 import javax.validation.constraints.NotBlank;
 
 @Data
-public class CreateOrderBookInput {
+public class OpenOrderBookInput {
 
     @NotBlank(message = "{orderBook.instrumentID.empty}")
     private String instrumentID;
-    @NotBlank(message = "{orderBook.instrumentType.empty}")
-    private String instrumentType;
 }
