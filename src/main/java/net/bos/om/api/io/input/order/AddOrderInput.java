@@ -9,7 +9,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
-import java.util.Date;
+import java.time.LocalDate;
 
 @Data
 @PriceConstraint
@@ -22,7 +22,7 @@ public class AddOrderInput {
 
     @NotNull(message = "{order.entryDate.empty}")
     @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
-    private Date entryDate;
+    private LocalDate entryDate;
 
     @NotBlank(message = "{instrumentID.empty}")
     private String instrumentID;

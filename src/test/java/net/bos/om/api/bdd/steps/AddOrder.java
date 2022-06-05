@@ -8,9 +8,7 @@ import net.bos.om.api.domain.OrderBook;
 import net.bos.om.api.domain.OrderBookStatus;
 import net.bos.om.api.domain.OrderType;
 import net.bos.om.api.io.input.order.AddOrderInput;
-import net.bos.om.api.io.input.orderbook.OpenOrderBookInput;
 import net.bos.om.api.io.output.order.OrderOutput;
-import net.bos.om.api.io.output.orderbook.OrderBookOutput;
 import net.bos.om.api.persistence.InMemoryPersistenceImpl;
 import net.bos.om.api.vo.InvocationResponse;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +19,8 @@ import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.ResponseEntity;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.equalTo;
@@ -54,7 +52,7 @@ public class AddOrder {
         AddOrderInput input = new AddOrderInput();
         input.setInstrumentID(ARBITRARY_INSTRUMENT_ID);
         input.setOrderType(OrderType.LIMIT.name());
-        input.setEntryDate(new Date());
+        input.setEntryDate(LocalDate.now());
         input.setPrice(1.1);
         input.setQuantity(100);
         ParameterizedTypeReference<InvocationResponse<OrderOutput>> ref = new ParameterizedTypeReference<InvocationResponse<OrderOutput>>() {

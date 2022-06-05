@@ -6,7 +6,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.bos.om.api.domain.OrderBook;
 import net.bos.om.api.domain.OrderBookStatus;
-import net.bos.om.api.io.input.orderbook.CloseOrderBookInput;
 import net.bos.om.api.io.input.orderbook.OpenOrderBookInput;
 import net.bos.om.api.io.output.orderbook.OrderBookOutput;
 import net.bos.om.api.persistence.InMemoryPersistenceImpl;

@@ -2,12 +2,12 @@ package net.bos.om.api.domain;
 
 import lombok.Data;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Data
 public class Order {
     private Integer quantity;
-    private Date entryDate;
+    private LocalDate entryDate;
     private String instrumentID;
     private OrderType orderType;
     private Double price;
