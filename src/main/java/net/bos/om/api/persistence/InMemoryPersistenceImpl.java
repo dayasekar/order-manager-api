@@ -1,5 +1,6 @@
 package net.bos.om.api.persistence;
 
+import lombok.Data;
 import net.bos.om.api.domain.Execution;
 import net.bos.om.api.domain.Order;
 import net.bos.om.api.domain.OrderBook;
@@ -10,6 +11,7 @@ import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Component
+@Data
 public class InMemoryPersistenceImpl implements BookingPersistence {
 
     private final Map<String, OrderBook> store = new ConcurrentHashMap<>();

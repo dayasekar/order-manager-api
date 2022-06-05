@@ -44,7 +44,7 @@ public class DefaultBookingServiceImpl implements BookingService {
 
     @Override
     public Order addOrder(Order order) {
-        if (checkOrderBookStatus(order.getInstrumentID(), OrderBookStatus.OPEN)) {
+        if (checkOrderBookStatus(order.getInstrumentID(), OrderBookStatus.CLOSED)) {
             throw new BookingServiceException("service.error.order.add.book.closed");
         }
         return persistence.addOrder(order);
@@ -52,7 +52,7 @@ public class DefaultBookingServiceImpl implements BookingService {
 
     @Override
     public Execution addExecution(Execution execution) {
-        if (checkOrderBookStatus(execution.getInstrumentID(), OrderBookStatus.CLOSED)) {
+        if (checkOrderBookStatus(execution.getInstrumentID(), OrderBookStatus.OPEN)) {
             throw new BookingServiceException("service.error.execution.add.open");
         }
         return persistence.addExecution(execution);

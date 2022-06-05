@@ -1,5 +1,6 @@
 package net.bos.om.api.io.input.order;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 import net.bos.om.api.validation.constraint.OrderTypeConstraint;
 import net.bos.om.api.validation.constraint.PriceConstraint;
@@ -20,6 +21,7 @@ public class AddOrderInput {
     private Integer quantity;
 
     @NotNull(message = "{order.entryDate.empty}")
+    @JsonFormat(pattern = "yyyy-MM-dd", shape = JsonFormat.Shape.STRING)
     private Date entryDate;
 
     @NotBlank(message = "{instrumentID.empty}")

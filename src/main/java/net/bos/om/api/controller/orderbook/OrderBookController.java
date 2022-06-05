@@ -8,6 +8,7 @@ import net.bos.om.api.io.output.orderbook.OrderBookOutput;
 import net.bos.om.api.vo.InvocationResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -17,17 +18,17 @@ public class OrderBookController {
     private OrderBookApp orderBookApp;
 
     @PostMapping("/order-book/create")
-    public InvocationResponse<OrderBookOutput> createOrderBook(CreateOrderBookInput input) {
+    public InvocationResponse<OrderBookOutput> createOrderBook(@RequestBody CreateOrderBookInput input) {
         return orderBookApp.createOrderBook(input);
     }
 
     @PostMapping("/order-book/open")
-    public InvocationResponse<OrderBookOutput> openOrderBook(OpenOrderBookInput input) {
+    public InvocationResponse<OrderBookOutput> openOrderBook(@RequestBody OpenOrderBookInput input) {
         return orderBookApp.openOrderBook(input);
     }
 
     @PostMapping("/order-book/close")
-    public InvocationResponse<OrderBookOutput> closeOrderBook(CloseOrderBookInput input) {
+    public InvocationResponse<OrderBookOutput> closeOrderBook(@RequestBody CloseOrderBookInput input) {
         return orderBookApp.closeOrderBook(input);
     }
 }

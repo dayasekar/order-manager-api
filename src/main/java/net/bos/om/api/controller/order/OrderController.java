@@ -6,6 +6,7 @@ import net.bos.om.api.io.output.order.OrderOutput;
 import net.bos.om.api.vo.InvocationResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -15,7 +16,7 @@ public class OrderController {
     private OrderApp orderApp;
 
     @PostMapping("/order/add")
-    public InvocationResponse<OrderOutput> addOrder(AddOrderInput addOrderInput) {
+    public InvocationResponse<OrderOutput> addOrder(@RequestBody AddOrderInput addOrderInput) {
         return orderApp.addOrder(addOrderInput);
     }
 }

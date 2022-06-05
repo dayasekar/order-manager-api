@@ -1,4 +1,9 @@
 
 logging:
   level:
-    root: INFOk
+    root: INFO
+    org:
+      springframework:
+        web:
+          client:
+            RestTemplate: DEBUG

@@ -6,6 +6,7 @@ import net.bos.om.api.io.output.execution.ExecutionOutput;
 import net.bos.om.api.vo.InvocationResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -15,7 +16,7 @@ public class ExecutionController {
     private ExecutionApp executionApp;
 
     @PostMapping("/execution/add")
-    public InvocationResponse<ExecutionOutput> addOrder(AddExecutionInput addExecutionInput) {
+    public InvocationResponse<ExecutionOutput> addOrder(@RequestBody AddExecutionInput addExecutionInput) {
         return executionApp.addExecution(addExecutionInput);
     }
 }
