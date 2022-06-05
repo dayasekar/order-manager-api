@@ -7,8 +7,8 @@ import javax.validation.constraints.NotBlank;
 @Data
 public class CreateOrderBookInput {
 
-    @NotBlank(message = "{orderBook.instrumentID.empty}")
+    @NotBlank(message = "{instrumentID.empty}")
     private String instrumentID;
-    @NotBlank(message = "{orderBook.instrumentType.empty}")
+    @NotBlank(message = "{instrumentType.empty}")
     private String instrumentType;
 }

@@ -1,10 +1,10 @@
 package net.bos.om.api.io.output.order;
 
 import lombok.Data;
-import net.bos.om.api.vo.OrderVO;
+import net.bos.om.api.domain.Order;
 
 @Data
 public class OrderOutput {
 
-    private OrderVO orderVO;
+    private Order order;
 }

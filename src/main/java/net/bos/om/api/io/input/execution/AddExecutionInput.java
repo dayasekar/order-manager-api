@@ -4,10 +4,14 @@ import lombok.Data;
 
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 @Data
 public class AddExecutionInput {
+
+    @NotBlank(message = "{instrumentID.empty}")
+    private String instrumentID;
 
     @NotNull(message = "{quantity.empty}")
     @Min(value = 100, message = "{quantity.min}")

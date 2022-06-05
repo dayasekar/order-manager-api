@@ -1,11 +1,11 @@
-package net.bos.om.api.vo;
+package net.bos.om.api.domain;
 
 import lombok.Data;
 
 import java.util.Date;
 
 @Data
-public class OrderVO {
+public class Order {
     private Integer quantity;
     private Date entryDate;
     private String instrumentID;

@@ -22,7 +22,7 @@ public class AddOrderInput {
     @NotNull(message = "{order.entryDate.empty}")
     private Date entryDate;
 
-    @NotBlank(message = "{orderBook.instrumentID.empty}")
+    @NotBlank(message = "{instrumentID.empty}")
     private String instrumentID;
 
     @OrderTypeConstraint

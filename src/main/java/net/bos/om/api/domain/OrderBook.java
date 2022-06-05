@@ -1,16 +1,16 @@
-package net.bos.om.api.vo;
+package net.bos.om.api.domain;
 
 import lombok.Data;
 
 import java.util.List;
 
 @Data
-public class OrderBookVO {
+public class OrderBook {
 
     private String instrumentID;
     private String instrumentType;
     private String status;
-    private List<OrderVO> orders;
-    private List<ExecutionVO> executions;
+    private List<Order> orders;
+    private List<Execution> executions;
 
 }
