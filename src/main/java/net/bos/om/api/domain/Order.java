@@ -9,6 +9,6 @@ public class Order {
     private Integer quantity;
     private Date entryDate;
     private String instrumentID;
-    private String priceType;
+    private OrderType orderType;
     private Double price;
 }

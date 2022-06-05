@@ -21,7 +21,7 @@ public class PriceValidator implements ConstraintValidator<PriceConstraint, AddO
         if (Objects.nonNull(input)) {
             if (StringUtils.equalsIgnoreCase(input.getOrderType(), OrderType.LIMIT.name())) {
                 System.out.println(Objects.nonNull(input.getPrice()));
-                if (!Objects.nonNull(input.getPrice()) || input.getPrice() < 0) {
+                if (!Objects.nonNull(input.getPrice()) || input.getPrice() <= 0) {
                     constraintValidatorContext.buildConstraintViolationWithTemplate("{order.limit.min.value}").addConstraintViolation();
                     return false;
                 }

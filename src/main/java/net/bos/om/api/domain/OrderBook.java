@@ -9,8 +9,7 @@ public class OrderBook {
 
     private String instrumentID;
     private String instrumentType;
-    private String status;
+    private OrderBookStatus status;
     private List<Order> orders;
     private List<Execution> executions;
-
 }

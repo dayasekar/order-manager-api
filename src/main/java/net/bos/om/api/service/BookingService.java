@@ -8,9 +8,9 @@ public interface BookingService {
 
     OrderBook createOrderBook(OrderBook orderBook);
 
-    OrderBook openOrderBook(OrderBook orderBook);
+    OrderBook openOrderBook(String instrumentID);
 
-    OrderBook closeOrderBook(OrderBook orderBook);
+    OrderBook closeOrderBook(String instrumentID);
 
     boolean doesOrderBookExist(String instrumentID);
 
