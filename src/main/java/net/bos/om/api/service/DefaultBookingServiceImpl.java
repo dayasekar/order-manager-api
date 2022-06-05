@@ -28,7 +28,7 @@ public class DefaultBookingServiceImpl implements BookingService {
 
     @Override
     public OrderBook openOrderBook(String instrumentID) {
-        if (isOrderBookOpen(instrumentID)) {
+        if (checkOrderBookStatus(instrumentID, OrderBookStatus.OPEN)) {
             throw new BookingServiceException("service.error.orderBook.already.open");
         }
         return persistence.updateOrderBookStatus(instrumentID, OrderBookStatus.OPEN);
@@ -36,36 +36,15 @@ public class DefaultBookingServiceImpl implements BookingService {
 
     @Override
     public OrderBook closeOrderBook(String instrumentID) {
-        if (isOrderBookClosed(instrumentID)) {
+        if (checkOrderBookStatus(instrumentID, OrderBookStatus.CLOSED)) {
             throw new BookingServiceException("service.error.orderBook.already.closed");
         }
         return persistence.updateOrderBookStatus(instrumentID, OrderBookStatus.CLOSED);
     }
 
     @Override
-    public boolean doesOrderBookExist(String instrumentID) {
-        return Objects.nonNull(persistence.getOrderBook(instrumentID));
-    }
-
-    @Override
-    public boolean isOrderBookOpen(String instrumentID) {
-        if (doesOrderBookExist(instrumentID)) {
-            return persistence.getOrderBookStatus(instrumentID).equals(OrderBookStatus.OPEN);
-        }
-        throw new BookingServiceException("service.error.order.book.absent");
-    }
-
-    @Override
-    public boolean isOrderBookClosed(String instrumentID) {
-        if (doesOrderBookExist(instrumentID)) {
-            return persistence.getOrderBookStatus(instrumentID).equals(OrderBookStatus.CLOSED);
-        }
-        throw new BookingServiceException("service.error.order.book.absent");
-    }
-
-    @Override
     public Order addOrder(Order order) {
-        if (isOrderBookClosed(order.getInstrumentID())) {
+        if (checkOrderBookStatus(order.getInstrumentID(), OrderBookStatus.OPEN)) {
             throw new BookingServiceException("service.error.order.add.book.closed");
         }
         return persistence.addOrder(order);
@@ -73,9 +52,20 @@ public class DefaultBookingServiceImpl implements BookingService {
 
     @Override
     public Execution addExecution(Execution execution) {
-        if (isOrderBookOpen(execution.getInstrumentID())) {
+        if (checkOrderBookStatus(execution.getInstrumentID(), OrderBookStatus.CLOSED)) {
             throw new BookingServiceException("service.error.execution.add.open");
         }
         return persistence.addExecution(execution);
+    }
+
+    private boolean doesOrderBookExist(String instrumentID) {
+        return Objects.nonNull(persistence.getOrderBook(instrumentID));
+    }
+
+    private boolean checkOrderBookStatus(String instrumentID, OrderBookStatus status) {
+        if (doesOrderBookExist(instrumentID)) {
+            return persistence.getOrderBookStatus(instrumentID).equals(status);
+        }
+        throw new BookingServiceException("service.error.order.book.absent");
     }
 }

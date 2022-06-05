@@ -12,12 +12,6 @@ public interface BookingService {
 
     OrderBook closeOrderBook(String instrumentID);
 
-    boolean doesOrderBookExist(String instrumentID);
-
-    boolean isOrderBookOpen(String InstrumentID);
-
-    boolean isOrderBookClosed(String InstrumentID);
-
     Order addOrder(Order order);
 
     Execution addExecution(Execution execution);
