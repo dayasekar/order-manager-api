@@ -1,4 +1,4 @@
-package net.bos.om.api.controller;
+package net.bos.om.api.rest.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
